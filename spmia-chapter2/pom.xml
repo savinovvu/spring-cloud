@@ -16,9 +16,9 @@
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>1.4.4.RELEASE</version>
   </parent>
-  <modules>
+<!--  <modules>
     <module>licensing-service</module>
-  </modules>
+  </modules>-->
   <build>
     <plugins>
       <plugin>
