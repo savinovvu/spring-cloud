@@ -48,4 +48,9 @@ public class LicenseService {
     public void deleteLicense(License license) {
         licenseRepository.delete(license.getLicenseId());
     }
+
+
+    public List<License> getAll() {
+        return (List<License>) licenseRepository.findAll();
+    }
 }
