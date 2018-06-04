@@ -1,0 +1,43 @@
+server:
+  port: 5555
+
+  #Setting logging levels
+logging:
+    level:
+      com.netflix: WARN
+      org.springframework.web: WARN
+      com.thoughtmechanix: DEBUG
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+        defaultZone: http://localhost:8761/eureka/
+
+zuul:
+  prefix:  /api
+  routes:
+    organizationservice: /organization/**
+
+
+#zuul:
+#  ignored-services: '*'
+#  prefix: /api
+#  routes:
+#    organizationservice: /organization/**
+#    licensingservice: /licensing/**
+
+# zool mappting without eurika
+#zuul:
+#  routes:
+#  licensestatic:
+#   path: /licensestatic/**
+#   url: http://licenseservice-static:8081
+
+
+#for register non jvm services use Spring Sidecar
+
+
