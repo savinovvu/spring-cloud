@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 
 @RestController
@@ -20,12 +22,14 @@ public class LicenseServiceController {
     public License getLicenses(@PathVariable("organizationId") String organizationId,
                                @PathVariable("licenseId") String licenseId) {
 
-        //return licenseService.getLicense(licenseId);
-        return new License()
-                .withId(licenseId)
-                .withOrganizationId(organizationId)
-                .withProductName("Teleco")
-                .withLicenseType("Seat");
+        return licenseService.getLicense(organizationId, licenseId);
+
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public List<License> getLicenses(@PathVariable("organizationId") String organizationId) {
+        return licenseService.getLicensesByOrg(organizationId);
+
     }
 
 
